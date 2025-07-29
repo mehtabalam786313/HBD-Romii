@@ -1,0 +1,210 @@
+/* Body & General */
+body {
+  margin: 0;
+  background: #111;
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Chains */
+.chain {
+  display: flex;
+  gap: 25px;
+  animation: swing 4s ease-in-out infinite;
+}
+
+.left-chain {
+  position: fixed;
+  top: 15%;
+  object-fit: top;
+  left: 20px;
+  flex-direction: column;
+}
+
+.right-chain {
+  position: fixed;
+  top: 15%;
+  right: 20px;
+  flex-direction: column;
+}
+
+.chain img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 3px solid #ff4081;
+  box-shadow: 0 0 10px #ff4081;
+  background: #222;
+}
+
+/* Swing Animation */
+@keyframes swing {
+  0%, 100% { transform: translateY(0) rotate(3deg); }
+  50% { transform: translateY(-10px) rotate(-3deg); }
+}
+
+/* Center Gift Box */
+.gift-box { 
+  position: fixed;
+  top: 52%; 
+  left: 50%;
+  transform: translate( -50%, -50%);
+  cursor: pointer;
+}
+
+.gift-box img {
+  width: 280px;
+  height:150px;
+}
+
+
+
+/* Open Gift Button */
+#openGiftBtn {
+  position: fixed;
+  top: 65%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px 40px;
+  font-size: 20px;
+  background: #ff4081;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 0 15px #ff4081;
+  transition:  0.3s ease;
+  color: white;
+}
+
+#openGiftBtn:hover {
+  background: #e03575;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #222;
+  padding: 30px 40px;
+  border-radius: 15px;
+  max-width: 700px;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 0 25px #ff4081;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 10px;  
+  cursor: pointer;
+  color: #ff4081;
+}
+
+#bigGiftImage {
+  width: 200px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+/* Wishes */
+.wishes p {
+  font-size: 18px;
+  margin: 10px 0;
+  animation: floatWishes 4s ease-in-out infinite alternate;
+}
+
+@keyframes floatWishes {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+}
+
+/* Slider */
+.slider {
+  overflow: hidden;
+  margin-top: 60px;
+  border-radius: 30px;
+  box-shadow: 0 0 15px #ff4081;
+}
+
+.slides {
+  display: flex;
+  width: 1000px;
+  height: 300px;
+  animation: slideAnimation  5s;
+}
+
+.slides img {
+  height: 290px;
+  width: 290px;
+  border-radius: 5%;
+  padding: 5px;
+}
+
+@keyframes slideAnimation {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-80%); }
+}
+
+/* Falling gifts container */
+#fallingGifts {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: visible;
+  z-index: 1050;
+}
+
+.falling-gift {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes heart-pop {
+  0% { opacity: 0; transform: scale(0.8) translateY(20px); }
+  50% { opacity: 1; transform: scale(1) translateY(0); }
+  100% { opacity: 0; transform: scale(1.2) translateY(-20px); }
+}
+
+.hearts {
+  position: fixed;
+  width: 50px;
+  height:   vh;
+  pointer-events: none;
+  overflow: visible;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.hearts span {
+  position: absolute;
+  color: #ff239c;
+  
+  font-size: 50px;
+  animation: heart-pop 3s ease-in-out infinite;
+  user-select: none;
+  opacity: 0;
+}

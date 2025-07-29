@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Birthday Page 5</title>
+  <link rel="stylesheet" href="page5.css">
+</head>
+
+
+<body>
+<script>
+  const heartsContainer = document.createElement('div');
+  heartsContainer.classList.add('hearts');
+  document.body.appendChild(heartsContainer);
+
+  for(let i = 0; i < 30; i++) {
+    const heart = document.createElement('span');
+    heart.textContent = '😍';
+    heart.style.left = `${Math.random() * 100}vw`;
+    heart.style.top = `${Math.random() * 100}vh`;
+    heart.style.animationDelay = `${Math.random() * 3}s`;
+    heart.style.fontSize = `${10 + Math.random() * 20}px`;
+    heartsContainer.appendChild(heart);
+  }
+</script>   
+</body>
+
+
+
+<body class="theme-page-5">
+  <h1 class="page-title">Breathe In Joy 🌳</h1>
+  <p class="message">Let your soul bloom like spring!</p>
+  <a href="page6.html" class="neon-button">Next</a>
+</body>
+
+
+
+<body>
+<div class="cube-container">
+  <div class="cube">
+    <div class="face front"><img src="Images/hijabi.jpg" alt="photo" /></div>
+    <div class="face back"><img src="Images/hijabi.jpg" alt="photo" /></div>
+    <div class="face right"><img src="Images/hijabi.jpg" alt="photo" /></div>
+    <div class="face left"><img src="Images/hijabi.jpg" alt="photo" /></div>
+    <div class="face top"><img src="Images/hijabi.jpg" alt="photo" /></div>
+    <div class="face bottom"><img src="Images/hijabi.jpg" alt="photo" /></div>
+  </div>
+</div>
+</body>
+
+</html>

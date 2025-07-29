@@ -1,0 +1,138 @@
+/* Page 1 - Dark Romantic Theme */
+
+body {
+  margin: 0; padding: 0;
+  background: #000000;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fd0000;
+  height: 100vh;
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.page-title {
+  font-size: 50px;
+  color: #fd0000;
+  text-shadow: 0 0 20px #fd5a5a;
+  margin-bottom: 15px;
+  user-select: none;
+} 
+
+.message {
+  font-size: 45px;
+  margin-bottom: 40px;
+  color: #fd0000;
+  text-shadow: 0 0 20px #fd5a5a;
+  text-align: center;
+  margin-bottom: 60px;
+  max-width: 80vw;
+  user-select: none;
+}
+
+.neon-button {
+  padding: 14px 30px;
+  font-size: 30px;
+  color: #fd0000;
+  background: transparent;
+  border: 3.5px solid #fd0000;
+  border-radius: 100px;
+  text-decoration: none;
+  box-shadow: 0 0 10px #fd5a5a, inset 0 0 20px #fd5a5a;
+  transition: 0.3s ease;
+  font-weight: 600;
+}
+
+.neon-button:hover {
+  background: #ff0000;
+  color: #0c0b0b;
+  box-shadow: 0 0 20px #fd5a5a, inset 0 0 25px #fd5a5a;
+}
+
+/* Floating Hearts */
+
+@keyframes heart-pop {
+  0% { opacity: 0; transform: scale(0.8) translateY(20px); }
+  50% { opacity: 1; transform: scale(1) translateY(0); }
+  100% { opacity: 0; transform: scale(1.2) translateY(-20px); }
+}
+
+.hearts {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: visible;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.hearts span {
+  position: absolute;
+  color: #ffffff;
+  font-size: 500px;
+  animation: heart-pop 3s ease-in-out infinite;
+  user-select: none;
+  opacity: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Wrapper to slightly lower the cube */
+.cube-container {
+  margin-top: 70px; /* Move a bit down from top */
+  width: 90px;
+  height: 90px;
+}
+
+.cube {
+  width: 90px;
+  height: 90px;
+  transform-style: preserve-3d;
+  animation: spin 6s linear infinite;
+  position: relative;
+}
+
+.face {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4px);
+  box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.face img {
+  width: 85%;
+  height: 85%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Position cube faces */
+.front  { transform: rotateY(0deg) translateZ(45px); }
+.back   { transform: rotateY(180deg) translateZ(45px); }
+.right  { transform: rotateY(90deg) translateZ(45px); }
+.left   { transform: rotateY(-90deg) translateZ(45px); }
+.top    { transform: rotateX(90deg) translateZ(45px); }
+.bottom { transform: rotateX(-90deg) translateZ(45px); }
+
+@keyframes spin {
+  from { transform: rotateX(0deg) rotateY(0deg); }
+  to   { transform: rotateX(360deg) rotateY(360deg); }
+}
+  

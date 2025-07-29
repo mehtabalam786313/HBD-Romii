@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Birthday Gift Animation</title>
+  <link rel="stylesheet" href="page8.css" />
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.min.js"></script>
+</head>
+<body>
+
+
+
+<body>
+<script>
+  const heartsContainer = document.createElement('div');
+  heartsContainer.classList.add('hearts');
+  document.body.appendChild(heartsContainer);
+
+  for(let i = 0; i <30 ; i++) {
+    const heart = document.createElement('span');
+    heart.textContent = '❤' ; 
+    heart.style.left = `${Math.random() * 100}vw`;
+    heart.style.top = `${Math.random() * 100}vh`;
+    heart.style.animationDelay = `${Math.random() * 4}s`;
+    heart.style.fontSize = `${10 + Math.random() * 15}px`;
+    heartsContainer.appendChild(heart);
+  }
+</script>   
+</body>
+
+
+
+
+  <!-- Left Chain -->
+  <div class="chain left-chain">
+    <img src="Images/red suit.jpg" alt="Metal 1" />
+    <img src="Images/mine3.jpg" alt="Metal 2" />
+    <img src="Images/thinking.jpg" alt="Metal 3" />
+    <img src="Images/mine 2.jpg" alt="Metal 4" />
+  </div>
+
+  <!-- Right Chain -->
+  <div class="chain right-chain">
+    <img src="Images/mine.jpg" alt="Glass 1" />
+    <img src="Images/main (2).jpg" alt="Glass 2" />
+    <img src="Images/me.jpg" alt="Glass 3" />
+    <img src="Images/skyblue.jpg" alt="Glass 4" />
+  </div>
+
+  <!-- Center 3D Gift Box -->
+  <div class="gift-box" id="giftBox">
+    <img id="giftBoxImg" src="Images/box.png" alt="3D Gift Box" />
+  </div>
+
+  <!-- Open Gift Button -->
+  <button id="openGiftBtn">Click For You Gift</button>
+
+  <!-- Modal for Gift & Wishes -->
+  <div id="giftModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+
+      <img src="Images/gift.png" id="bigGiftImage" alt="Big Gift" />
+
+      <div class="wishes">
+        <p>Wishing you endless joy!</p>
+        <p>May your day be filled with smiles.</p>
+        <p>Cheers to another wonderful year!</p>
+        <p>Hope all your dreams come true.</p>
+        <p>Celebrate and enjoy your special day!</p>
+      </div>
+
+      <div class="slider">
+        <div class="slides">
+          <img src="Images/hijabi.jpg" alt="Slide 2" />
+          <img src="Images/main.jpg" alt="Slide 4" />
+          <img src="Images/main (2).jpg">
+          <img src="Images/skyblue.jpg" alt="Slide 5" />
+          <img src = "Images/beauty landscape.jpg">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Falling Gifts Container -->
+  <div id="fallingGifts"></div>
+
+  <!-- Fireworks Container -->
+  <div id="fireworks"></div>
+
+  <script>
+    // Rotate Gift Box Animation
+    const giftBoxImg = document.getElementById('giftBoxImg');
+
+    // Modal elements
+    const openGiftBtn = document.getElementById('openGiftBtn');
+    const giftModal = document.getElementById('giftModal');
+    const closeBtn = giftModal.querySelector('.close-btn');
+
+    openGiftBtn.addEventListener('click', () => {
+      giftModal.style.display = 'flex';
+    });
+
+    closeBtn.addEventListener('click', () => {
+      giftModal.style.display = 'none';
+    });
+
+    // Falling Gifts Animation
+   
+
+    function createFallingGift() {
+      const gift = document.createElement('img');
+      gift.src = giftImages[Math.floor(Math.random() * giftImages.length)];
+      gift.className = 'falling-gift';
+      gift.style.left = Math.random() * window.innerWidth + 'px';
+      gift.style.animationDuration = (4 + Math.random() * 4) + 's';
+      fallingGiftsContainer.appendChild(gift);
+
+      gift.addEventListener('animationend', () => {
+        gift.remove();
+      });
+    }
+
+    setInterval(createFallingGift, 300);
+
+    // Fireworks using tsparticles
+    tsParticles.load("fireworks", {
+      fpsLimit: 60,
+      particles: {
+        number: { value: 0 },
+        color: { value: ["#ff0000", "#00ff00", "#0000ff", "#ff00ff", "#00ffff"] },
+        shape: { type: "circle" },
+        size: { value: 3, random: { enable: true, minimumValue: 1 } },
+        life: { duration: { sync: true, value: 2 }, count: 1 },
+        move: {
+          enable: true,
+          gravity: { enable: true, acceleration: 9.81 },
+          speed: { min: 15, max: 30 },
+          decay: 0.1,
+          direction: "none",
+          outModes: { default: "destroy" }
+        },
+        opacity: { value: 1, animation: { enable: true, startValue: 1, destroy: "min", speed: 0.5 } }
+      },
+      emitters: {
+        direction: "top",
+        life: { count: 0, duration: 0.1, delay: 0.4 },
+        rate: { delay: 0.2, quantity: 10 },
+        size: { width: 0, height: 0 },
+        position: { x: 50, y: 100 },
+        spawnColor: { value: "#ffffff" }
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+/* Page 1 - Dark Romantic Theme */
+
+body {
+  margin: 0; padding: 0;
+  background:  #50032d;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #5c1515;
+  height: 100vh;
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.page-title {
+  font-size: 48px   ;
+  color: #ff45ab; /* rose red */
+  text-shadow: 0 0 20px #ff4daf;
+  margin-bottom: 15px;
+  text-align: center;
+  user-select: none;
+}
+
+.message {
+  font-size: 50px;
+  color: #ff239c; /* rose red */
+  text-shadow: 0 0 30px #ff4daf; 
+  margin-bottom: 5px;
+  text-align: center;
+  user-select: none;
+}
+
+.neon-button {
+  padding: 10px 50px;
+  font-size: 30px;
+  color: #ff239c; /* rose red */
+  background: transparent;
+  border: 2.5px solid #ff239c;
+  border-radius: 60px;
+  text-decoration: none;
+  box-shadow: 0 0 8px #ff4daf, inset 0 0 20px #ff4daf;
+  transition: 0.3s ease;
+  font-weight: 700;
+}
+
+.neon-button:hover {
+  background: #ff4daf;
+  color: #50032d;
+  box-shadow: 0 0 20px #ff4daf, inset 0 0 25px #ff4daf;
+}
+
+/* Floating Hearts */
+
+@keyframes heart-pop {
+  0% { opacity: 0; transform: scale(0.8) translateY(20px); }
+  50% { opacity: 1; transform: scale(1) translateY(0); }
+  100% { opacity: 0; transform: scale(1.2) translateY(-20px); }
+}
+
+.hearts {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: visible;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.hearts span {
+  position: absolute;
+  color: #ff239c;
+  font-size: 20px;
+  animation: heart-pop 3s ease-in-out infinite;
+  user-select: none;
+  opacity: 0;
+}
+
+
+
+
+
+
+
+
+/* Wrapper to slightly lower the cube */
+.cube-container {
+  margin-top: 70px; /* Move a bit down from top */
+  width: 90px;
+  height: 90px;
+}
+
+.cube {
+  width: 90px;
+  height: 90px;
+  transform-style: preserve-3d;
+  animation: spin 6s linear infinite;
+  position: relative;
+}
+
+.face {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4px);
+  box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.face img {
+  width: 85%;
+  height: 85%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Position cube faces */
+.front  { transform: rotateY(0deg) translateZ(45px); }
+.back   { transform: rotateY(180deg) translateZ(45px); }
+.right  { transform: rotateY(90deg) translateZ(45px); }
+.left   { transform: rotateY(-90deg) translateZ(45px); }
+.top    { transform: rotateX(90deg) translateZ(45px); }
+.bottom { transform: rotateX(-90deg) translateZ(45px); }
+
+@keyframes spin {
+  from { transform: rotateX(0deg) rotateY(0deg); }
+  to   { transform: rotateX(360deg) rotateY(360deg); }
+}
